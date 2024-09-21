@@ -63,7 +63,7 @@ class Employee
         $stmt = $this->connDB->prepare($strSQL);
 
         //เอาที่ผ่านการตรวจแล้วไปกำหนดให้กับ parameters
-        $stmt->bindParam(":empPhonenum", $this->empName);
+        $stmt->bindParam(":empName", $this->empName);
         $stmt->bindParam(":empPhonenum", $this->empPhonenum);
         $stmt->bindParam(":empPassword", $this->empPassword);
         $stmt->bindParam(":empPassword", $this->empImage);

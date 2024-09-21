@@ -66,7 +66,7 @@ class Employee
         $stmt->bindParam(":empName", $this->empName);
         $stmt->bindParam(":empPhonenum", $this->empPhonenum);
         $stmt->bindParam(":empPassword", $this->empPassword);
-        $stmt->bindParam(":empPassword", $this->empImage);
+        $stmt->bindParam(":empImage", $this->empImage);
 
         //สั่งให้ SQL ทำงาน และส่งผลลัพธ์ว่าเพิ่มข้อมูลสําเร็จหรือไม่
         if($stmt->execute()){

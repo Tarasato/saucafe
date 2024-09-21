@@ -64,7 +64,7 @@ class Employee{
         $stmt->bindParam(":empName", $this->empName);
         $stmt->bindParam(":empPhonenum", $this->empPhonenum);
         $stmt->bindParam(":empPassword", $this->empPassword);
-
+        $stmt->bindParam(":empImage", $this->empImage);
 
     //สั่งsqlให้ทำงาน
     if ($stmt->execute()) {

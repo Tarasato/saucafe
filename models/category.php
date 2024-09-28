@@ -18,6 +18,22 @@ class Category{
 
     //----------------------------------------------------------
     //function การทำงานที่ล้อกับส่วนของ apis
+
+    public function getAllCategory()
+    {
+        //ตัวแปรเก็บคำสั่ง SQL
+        $strSQL = "SELECT * FROM category_tb";
+
+        //สร้างตัวแปรที่ใช้ทำงานกับคำสั่ง SQL
+        $stmt = $this->connDB->prepare($strSQL);
+
+        //สั่งให้ SQL ทำงาน
+        $stmt->execute();
+
+        //ส่งค่าผลการทำงานกลับไปยังจุดเรียกใช้ฟังก์ชันนี้
+        return $stmt;
+    }
+    
     public function checkCate(){
     $strSQL = "SELECT * FROM category_tb WHERE catId = :catId AND catName = :catName";
 

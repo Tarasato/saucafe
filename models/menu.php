@@ -22,24 +22,19 @@ class Menu{
 
     //----------------------------------------------------------
     //function การทำงานที่ล้อกับส่วนของ apis
-    public function checkMenu(){
-        $strSQL = "SELECT * FROM menu_item_tb WHERE itemId = :itemId AND itemName = :itemName";
+    public function getAllMenu()
+    {
+        //ตัวแปรเก็บคำสั่ง SQL
+        $strSQL = "SELECT * FROM menu_item_tb";
 
-    $this->itemId = htmlspecialchars(strip_tags($this->itemId));
-    $this->itemName = htmlspecialchars(strip_tags($this->itemName));
+        //สร้างตัวแปรที่ใช้ทำงานกับคำสั่ง SQL
+        $stmt = $this->connDB->prepare($strSQL);
 
-    //สร้างตัวแปรสที่ใช้ทำงานกับคำสั่งsql
-    $stmt = $this->connDB->prepare($strSQL);
+        //สั่งให้ SQL ทำงาน
+        $stmt->execute();
 
-    //เอาที่ผ่านตรวจสอบแล้วไปกำหนดให้กับ parameter 
-
-    $stmt->bindParam(":itemId", $this->itemId);
-    $stmt->bindParam(":itemName", $this->itemName);
-
-    //สั่งsqlให้ทำงาน
-    $stmt->execute();
-    //ส่งค่าการทำงานกลับไปยังจุดเรียกใช้งานฟังก์ชั่น 
-    return $stmt;
+        //ส่งค่าผลการทำงานกลับไปยังจุดเรียกใช้ฟังก์ชันนี้
+        return $stmt;
     }
 
     //function newMenu
